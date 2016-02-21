@@ -3,6 +3,7 @@ var gutil       = require('gulp-util');
 var source      = require('vinyl-source-stream');
 var babelify    = require('babelify');
 var watchify    = require('watchify');
+var eslint      = require('gulp-eslint');
 var exorcist    = require('exorcist');
 var browserify  = require('browserify');
 var browserSync = require('browser-sync').create();
@@ -32,6 +33,13 @@ function bundle() {
         .pipe(gulp.dest('./dist'))
         .pipe(browserSync.stream({once: true}));
 }
+
+gulp.task('lint', function () {
+    return gulp.src(['**/*.js','!gulpfile.js','!node_modules/**','!dist/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
 
 /**
  * Gulp task alias

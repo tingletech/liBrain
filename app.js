@@ -1,7 +1,9 @@
-import User from "./src/model/user";
+let $ = require('jquery');
+let _ = require('lodash');
 
-let $ = require('jquery'),
-    _ = require('lodash');
-
-var user = new User("Iran");
-user.sayHi();
+'use strict';
+$(document).ready(function(){
+  var mydiv = $('*[data-library-brain]')[0];
+  var conf = $(mydiv).data('libraryBrain');
+  console.log(conf);
+});
