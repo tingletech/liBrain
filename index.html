@@ -4,8 +4,19 @@
   <title>liBrain</title>
 </head>
 <body>
-  <div>Welcome to liBrain</div>
-  <div data-librain='{"q":"fred", "provider.name": "-California+Digital+Library"}'> HEY</div>
+  <h1>Welcome to liBrain</h1>
+  <div>[pretend this is a search for "fred" on Calisphere]</div>
+  <h2>related items at the Digital Public Library of America</h2>
+  <div data-librain='{"q":"fred", "provider.name": "-California+Digital+Library"}'/>
+  <script data-librain-template='card' type="text/x-handlebars-template">
+<div>
+  <a href="{{isShownAt}}">
+    <div><img src="{{ object }}"></div>
+    <div>{{ sourceResource.title }}</div>
+  </a>
+</div>
+    <div>{{ dataProvider }}</div>
+  </script>
   <script src="dist/bundle.js"></script>
 </body>
 </html>

@@ -1,15 +1,14 @@
 'use strict';
 const $ = require('jquery');
+const Handlebars = require('handlebars');
 
-// var card = _.template('<p>hello <%= isShownAt %>!</p>');
-
-const card = (d) => $(`
-  <p><a href="${d.isShownAt}"><img src="${d.object}"/>${ d.sourceResource.title }</a>
-</p>`);
+const card_template  = $("*[data-librain-template=card]").html();
+const card = Handlebars.compile(card_template);
 
 module.exports.success = (result) => {
   let mydiv = $('*[data-librain]')[0];
   for (let value of result.docs) {
+    console.log(value);
     $(mydiv).append(card(value));
   }
 }
