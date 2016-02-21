@@ -7,6 +7,7 @@ var eslint      = require('gulp-eslint');
 var exorcist    = require('exorcist');
 var browserify  = require('browserify');
 var browserSync = require('browser-sync').create();
+var ghPages     = require('gulp-gh-pages');
 
 // Input file.
 watchify.args.debug = true;
@@ -33,6 +34,11 @@ function bundle() {
         .pipe(gulp.dest('./dist'))
         .pipe(browserSync.stream({once: true}));
 }
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('lint', function () {
     return gulp.src(['**/*.js','!gulpfile.js','!node_modules/**','!dist/**'])
