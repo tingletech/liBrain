@@ -2,15 +2,13 @@
 const $ = require('jquery');
 const Handlebars = require('handlebars');
 
-const card_template  = $("*[data-librain-template=card]").html();
-const card = Handlebars.compile(card_template);
+const cards_template  = $("*[data-librain-template=cards]").html();
+const cards = Handlebars.compile(cards_template);
 
 module.exports.success = (result) => {
+  if (result.docs.length == 0) { return; }
   let mydiv = $('*[data-librain]')[0];
-  for (let value of result.docs) {
-    console.log(value);
-    $(mydiv).append(card(value));
-  }
+  $(mydiv).append(cards(result));
 }
 
 module.exports.error = (xhr) => xhr;
