@@ -1,3 +1,13 @@
+# liBrain
+
+<a href="http://www.outbrain.com">Outbrain</a> inspired content promotion network demo, powered by
+<a href="http://dp.la/">DPLA</a> <a href="http://dp.la/info/developers/codex/">API</a>.
+
+Want to promote more library conent?  Add a widget to your web page that pulls in results
+via the DPLA, formatting the results with http://handlebarsjs.com
+
+See a demo http://tingletech.github.io/liBrain-jotted/
+
 ## Basic ES6 Scaffolding
 
 A basic es2015(Ecmascript 6) scaffolding with browserify and gulp.
